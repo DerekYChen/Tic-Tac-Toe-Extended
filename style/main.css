@@ -1,0 +1,88 @@
+body {
+	text-align: center;
+	padding-top: 70px;
+	overflow-y:scroll;
+}
+
+#board table {
+	width: 450px;
+	height: 450px;
+	margin: 0 auto;
+}
+	
+#board table table {
+	width: 150px;
+	height: 150px;
+	border: 2px solid black;
+	margin: 0 auto;
+	border-collapse:collapse;
+}
+
+#board table table.pickable-true {
+	background-color: #ffffff;
+}
+
+#board table table.pickable-false {
+	background-color: #d3d3d3;
+}
+
+#board table table.win-1 {
+	background-image: url('../img/winx.png');
+}
+
+#board table table.win-2 {
+	background-image: url('../img/wino.png');
+}
+
+/*
+#board table table.grid-1 {
+	background-image: url('../img/win1.png');
+}
+
+#board table table.grid-2 {
+	background-image: url('../img/win2.png');
+}
+
+#board table table.grid-3 {
+	background-image: url('../img/win3.png');
+}
+
+#board table table.grid-4 {
+	background-image: url('../img/win4.png');
+}
+
+#board table table.grid-5 {
+	background-image: url('../img/win5.png');
+}
+
+#board table table.grid-6 {
+	background-image: url('../img/win6.png');
+}
+
+#board table table.grid-7 {
+	background-image: url('../img/win7.png');
+}
+
+#board table table.grid-8 {
+	background-image: url('../img/win8.png');
+}
+*/
+#board table table td {
+	width: 50px;
+	height: 50px;
+	border: 1px solid gray;
+}
+
+#board table table td.cell-1 {
+	background: url('../img/x.png');
+	z-index:0;
+}
+
+#board table table td.cell-2 {
+	background: url('../img/o.png');
+	z-index:0;
+}
+
+#board p.message {
+	text-align: center;
+}
