@@ -6,14 +6,13 @@ angular
 	function Grid()
 	{
 		this.rows = [[0,0,0],[0,0,0],[0,0,0]];
-		//this.isPickable = function() { return this === $scope.nextGrid || $scope.nextGrid === null; };
 		this.isPickable = function() 
 		{ 
-			if (this.isFull()) 
+			if (this.isFull() || $scope.win) 
 			{
 				return false;
-			} 
-			else 
+			}
+			else
 			{
 				return this === $scope.nextGrid || $scope.nextGrid ===  null; 
 			}
@@ -115,6 +114,7 @@ angular
 					if ($scope.grids[row][col].win === null) 
 					{
 						$scope.message = "Its a draw!";
+						$scope.win=2;
 					}
 				}
 			}
