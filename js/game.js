@@ -3,6 +3,8 @@ angular
 
 .controller("Game",function($scope)
 {
+	var firstMove = false;
+
 	function Grid()
 	{
 		this.rows = [[0,0,0],[0,0,0],[0,0,0]];
@@ -28,15 +30,27 @@ angular
 				this.rows[row][col] = $scope.currentPlayer;
 				$scope.nextGrid = $scope.grids[row][col];
 				this.testEnd() && this.testEndGame();
-				if ($scope.win === null)
-				{
-					$scope.currentPlayer = $scope.currentPlayer%2+1;
-					$scope.message = "Player "+$scope.currentPlayer+"'s turn";
-				}
 				if ($scope.nextGrid.win === 0 || $scope.nextGrid.isFull()) 
 				{
 					$scope.nextGrid = null;
 				}
+				if ($scope.win === null)
+				{
+					$scope.currentPlayer = $scope.currentPlayer%2+1;
+					if ($scope.AI == $scope.currentPlayer) 
+					{
+						$scope.currentPlayer = $scope.currentPlayer%2+1;
+						var move = testAI($scope.nextGrid);
+						$scope.grids[row][col].rows[move[0]][move[1]] = $scope.AI;
+						$scope.nextGrid = $scope.grids[move[0]][move[1]];
+						$scope.message = "Player "+$scope.currentPlayer+"'s turn";
+					}
+					else
+					{
+						$scope.message = "Player "+$scope.currentPlayer+"'s turn";
+					}
+				}
+				
 			}
 		}
 		this.isFull = function()
@@ -134,5 +148,18 @@ angular
 		$scope.currentPlayer=1;
 		$scope.message = "Player "+$scope.currentPlayer+" to start";
 		$scope.win = null;
+		$scope.AI = false;
 	})();
+
+	function testAI(grid)
+	{
+		if (grid.cellAt([1,1]) == 0)
+		{
+			return [1,1];
+		}
+		else 
+		{
+			return [0,1];
+		}
+	}
 });

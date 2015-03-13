@@ -10,6 +10,12 @@ body {
 	overflow-y:scroll;
 }
 
+.btn:focus {
+  outline: none;
+}
+
+/*BOARD*/
+
 #board table {
 	width: 450px;
 	height: 450px;
