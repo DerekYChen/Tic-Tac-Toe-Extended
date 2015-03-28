@@ -6,6 +6,7 @@ angular
 	function Grid()
 	{
 		this.rows = [[0,0,0],[0,0,0],[0,0,0]];
+		
 		this.isPickable = function() 
 		{ 
 			if (this.isFull() || $scope.win) 
@@ -17,10 +18,12 @@ angular
 				return this === $scope.nextGrid || $scope.nextGrid ===  null; 
 			}
 		}
+
 		this.cellAt = function(coords)
 		{ 
 			return this.rows[coords[0]][coords[1]]; 
-		};
+		}
+
 		this.check = function(row,col)
 		{
 			if (this.rows[row][col] === 0 && this.isPickable())
@@ -39,6 +42,7 @@ angular
 				}
 			}
 		}
+		
 		this.isFull = function()
 		{
 			for (var row=0; row<3; row++)
@@ -72,7 +76,8 @@ angular
 			}
 			for (var move,m=0; move= winMoves[m]; m++) 
 			{
-				if (this.cellAt(move[0])>0 && this.cellAt(move[0]) === this.cellAt(move[1]) && this.cellAt(move[1]) === this.cellAt(move[2]))
+				if (this.cellAt(move[0])>0 && this.cellAt(move[0]) === this.cellAt(move[1]) 
+					&& this.cellAt(move[1]) === this.cellAt(move[2]))
 				{
 					this.win = this.cellAt(move[0]);
 					this.winMove = m+1;
