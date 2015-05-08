@@ -1,0 +1,120 @@
+@media (min-width: 1200px) {
+	.container {
+		width: 970px;
+	}
+}
+
+body {
+	text-align: center;
+	overflow-y:scroll;
+}
+
+#board {
+	table {
+		width: 450px;
+		height: 450px;
+		margin: 0 auto;
+		table {
+			width: 150px;
+			height: 150px;
+			margin: 0 auto;
+			border-collapse:collapse;
+			border-color: black;
+			border-width: 2px;
+			td {
+				width: 50px;
+				height: 50px;
+				border-color:gray;
+				border-width: 1px;
+				&.cell-1{
+					background: url('../img/x.png');
+					z-index:0;
+				}
+				&.cell-2{
+					background: url('../img/o.png');
+					z-index:0;
+				}
+			}
+			.pickable-true{
+				background-color: #ffffff;
+			}
+			.pickable-false{
+				background-color: #d3d3d3;
+			}
+			.win-1{
+				background-image: url('../img/winx.png');
+			}
+			.win-2{
+				background-image: url('../img/wino.png');
+			}
+		}
+	}
+	p {
+		.message{
+			text-align: center;
+			font-size: 20px;
+		}
+	}
+}
+
+.count-4{
+	border: solid;
+}
+.count-0,
+.count-1,
+.count-3{
+	border-bottom: solid;
+	border-right: solid;
+}
+.count-1,
+.count-2,
+.count-5,{
+	border-left: solid;
+	border-bottom: solid;
+}
+.count-3,
+.count-6,
+.count-7{
+	border-top: solid;
+	border-right: solid;
+}
+.count-5,
+.count-7,
+.count-8{
+	border-top: solid;
+	border-left: solid;
+}
+
+/*
+#board table table.grid-1 {
+	background-image: url('../img/win1.png');
+}
+
+#board table table.grid-2 {
+	background-image: url('../img/win2.png');
+}
+
+#board table table.grid-3 {
+	background-image: url('../img/win3.png');
+}
+
+#board table table.grid-4 {
+	background-image: url('../img/win4.png');
+}
+
+#board table table.grid-5 {
+	background-image: url('../img/win5.png');
+}
+
+#board table table.grid-6 {
+	background-image: url('../img/win6.png');
+}
+
+#board table table.grid-7 {
+	background-image: url('../img/win7.png');
+}
+
+#board table table.grid-8 {
+	background-image: url('../img/win8.png');
+}
+*/

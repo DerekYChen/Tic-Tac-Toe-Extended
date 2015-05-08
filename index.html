@@ -19,9 +19,9 @@
 		<table>
 			<tr ng-repeat="gridrow in grids">
 				<td ng-repeat="grid in gridrow">
-					<table id="3x3" class="grid-{{ grid.winMove }} win-{{ grid.win }} pickable-{{ grid.isPickable() }}">
+					<table id="3x3" class="grid-{{ grid.winMove }} win-{{ grid.win }} pickable-{{ grid.isPickable() }} count-{{$index + $parent.$index*3}}">
 						<tr ng-repeat="row in grid.rows">
-							<td ng-click="grid.check($parent.$index,$index)" ng-repeat="cell in row track by $index" class="cell-{{ cell }}"></td>
+							<td ng-click="grid.check($parent.$index,$index)" ng-repeat="cell in row track by $index" class="cell-{{ cell }} count-{{$index + $parent.$index*3}}"></td>
 						</tr>
 					</table>
 				</td>
